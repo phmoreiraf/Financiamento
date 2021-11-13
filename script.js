@@ -26,12 +26,10 @@ function calculateFinance() {
                 ((1 + interestRate / 100) ** installmentNumber - 1));
 
         if (monthlyInstallmentAmount >= maximumAmountInstallment) {
-            resultName.textContent = `Olá, ${name}!`;
-            resultText.textContent = `Você não está apto para receber o financiamento.
+            resultText.textContent = `Olá, ${name}!, Você não está apto para receber o financiamento.
                                 O limite da sua parcela é de R$${maximumAmountInstallment}`;
         } else {
-            resultName.textContent = `Olá, ${name}!`;
-            resultText.textContent = `Você está apto para receber o financiamento.
+            resultText.textContent = `Olá, ${name}!,Você está apto para receber o financiamento.
                                 O valor da sua parcela mensal é de R$${maximumAmountInstallment}`;
         }
     } else {
