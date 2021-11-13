@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>PACE</title>
+    <title>Financiamento</title>
     <link rel="stylesheet" href="estilo.css">
 </head>
 
@@ -13,31 +13,40 @@
     <main>
         <div class="section">
 
-            <div class="title"> Calcular PACE </div>
+            <div class="title"> Financiamento </div>
 
             <div class="input">
-                
+
                 <input placeholder="Insira seu nome" type="text" id='nome' required="required">
             </div>
 
             <div class="input">
-               
-                <input placeholder="Insira seu peso em kg" type="number" id='peso' required="required">
-            </div>
 
-            <div class="input">
-                
-                <input placeholder="Insira a distancia" type="number" id='distancia' required="required">
+                <input placeholder="" type="text" id='monthlyIncome' required="required">
             </div>
 
             <div class="input">
 
-                <input placeholder="Insira o tempo" type="time" id='tempo' step = 1 required="required">
+                <input placeholder="" type="number" id='itemValue' required="required">
+            </div>
+
+            <div class="input">
+
+                <input placeholder="" type="number" id='entranceValue' step=1 required="required">
+            </div>
+            <div class="input">
+
+                <input placeholder="" type="number" id='interestRate' required="required">
+            </div>
+
+            <div class="input">
+
+                <input placeholder="" type="number" id='installmentNumber' required="required">
             </div>
 
             <button id='calcular'>Calcular</button>
-            
-            <div class="result" id='resultado'></div>
+
+            <div class="result" id='resultText'></div>
 
         </div>
     </main>
