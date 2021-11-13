@@ -1,36 +1,47 @@
-const btncalcular = document.getElementById('calcular');
+const calculate = document.getElementById('calcular');
 
-function calcularPace() {
+function calculateFinance() {
+    const name = document.getElementById('nome').value;
+    const monthlyIncome = document.getElementById('monthlyIncome').value;
+    const itemValue = document.getElementById('itemValue').value;
+    const entranceValue = document.getElementById('entranceValue').value;
+    const interestRate = document.getElementById('interestRate').value;
+    const installmentNumber = document.getElementById('installmentNumber').value;
+    const resultText = document.getElementById('resultText');
 
-  const name = document.getElementById('nome').value;
-  const peso = document.getElementById('peso').value;
-  const distancia = document.getElementById('distancia').value;
-  const tempo = document.getElementById('tempo').value;
+    if (
+        name !== '' &&
+        monthlyIncome !== '' &&
+        itemValue !== '' &&
+        entranceValue !== '' &&
+        interestRate !== '' &&
+        installmentNumber !== ''
+    ) {
+        const amountToBeFinanced = itemValue - entranceValue;
+        const maximumAmountInstallment = monthlyIncome * 0.3;
 
-  const result = document.getElementById('resultado');
+        const monthlyInstallmentAmount =
+            amountToBeFinanced *
+            (((1 + interestRate / 100) ** installmentNumber * interestRate) /
+                ((1 + interestRate / 100) ** installmentNumber - 1));
 
-  if (name !== '' && peso !== '' && distancia !== '' && tempo !== '') {
+        if (monthlyInstallmentAmount >= maximumAmountInstallment) {
+            resultName.textContent = `Olá, ${name}!`;
+            resultText.textContent = `Você não está apto para receber o financiamento.
+                                O limite da sua parcela é de R$${maximumAmountInstallment}`;
+        } else {
+            resultName.textContent = `Olá, ${name}!`;
+            resultText.textContent = `Você está apto para receber o financiamento.
+                                O valor da sua parcela mensal é de R$${maximumAmountInstallment}`;
+        }
+    } else {
+        // Caso o usuario não preencha os input's limpar o resultName e resultText e no result informar o problema
+        result.textContent =
+            'Para calcular o seu financiamento, preencha todos os campos.';
 
-    const timeSplitted = tempo.split(':');
-
-    const hora = parseInt(timeSplitted[0]);
-    const minutos = parseInt(timeSplitted[1]);
-    const segundos = parseInt(timeSplitted[2]);
-
-    const Todashoras = hora + (minutos/60) + (segundos/3600);
-    const Todasminutos = Todashoras*60;
-
-    const velocidade = (distancia/(Todashoras)).toFixed(2);
-    const pace = (60 / velocidade).toFixed(2);
-    const calorias = (velocidade * peso * 0.0175 * (Todasminutos)).toFixed(2)
-
-    result.textContent = `Olá, ${name}!, Você percorreu ${distancia}km em ${hora}h, ${minutos}min e ${segundos}s. 
-    Isso quer dizer que a sua velocidade média foi de ${velocidade} km/h, o que o corresponde a um pace de ${pace}min/km.
-    Com ${peso}kg, você gastou cerca de ${calorias} cal`;
-  } else {
-
-    window.alert('Para calcular o seu pace , preencha todos os campos.');
-  }
+        resultName.textContent = '';
+        resultText.textContent = '';
+    }
 }
 
-btncalcular.addEventListener('click', calcularPace);
+calculate.addEventListener('click', calculateFinance);
