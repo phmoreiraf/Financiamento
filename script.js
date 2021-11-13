@@ -1,7 +1,7 @@
 const calculate = document.getElementById('calcular');
 
 function calculateFinance() {
-    const name = document.getElementById('nome').value;
+    const name = document.getElementById('name').value;
     const monthlyIncome = document.getElementById('monthlyIncome').value;
     const itemValue = document.getElementById('itemValue').value;
     const entranceValue = document.getElementById('entranceValue').value;
